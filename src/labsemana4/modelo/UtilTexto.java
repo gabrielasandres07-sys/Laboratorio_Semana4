@@ -1,9 +1,8 @@
-
 package labsemana4.modelo;
 
 import java.text.Normalizer;
 
-public class UtilTexto {
+public final class UtilTexto {
   private static final char Enie = '\u00D1'; 
   
    private UtilTexto() {
@@ -31,5 +30,16 @@ public class UtilTexto {
         }
         return false;
     }
-   }
 
+    public static boolean esPalabraValida(String palabra) {
+        if (palabra.length() < 3 || palabra.length() > 15) {
+            return false;
+        }
+        for (int i = 0; i < palabra.length(); i++) {
+            if (!esLetra(palabra.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+   }
